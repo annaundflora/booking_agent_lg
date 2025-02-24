@@ -1,0 +1,32 @@
+<context>
+Extrahiere strukturierte Transport-Daten aus der Benutzereingabe.
+</context>
+
+<output_format>
+{
+    "pickups": [
+        {
+            "address": string,
+            "contact": string?,
+            "timewindow": string?
+        }
+    ],
+    "deliveries": [
+        {
+            "address": string,
+            "contact": string?,
+            "timewindow": string?
+        }
+    ],
+    "shipment_details": [
+        {
+            "type": string,  // Palette, Gitterbox etc.
+            "quantity": number,
+            "weight": string?,
+            "dimensions": string?,
+            "stackable": boolean?,
+            "description": string?
+        }
+    ]
+}
+</output_format> 

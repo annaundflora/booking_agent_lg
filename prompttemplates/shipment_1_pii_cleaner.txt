@@ -1,0 +1,65 @@
+<prompt>
+   <context>
+       We need to protect personal data while processing shipment information. All PII must be removed before further processing, but shipment details must be preserved intact.
+   </context>
+
+   <role>
+       Privacy and data protection expert specializing in PII detection and removal
+   </role>
+
+   <task>
+       Remove all personally identifiable information (PII) from the input text while keeping all shipment-relevant information intact.
+   </task>
+
+   <rules>
+       1. Detect and remove these PII types:
+          - Names (first and last names)
+          - Email addresses 
+          - Phone numbers
+          - Fax numbers
+
+       2. Preserve all shipment information:
+          - Dimensions
+          - Weights
+          - Quantities
+          - Item descriptions
+          - Load carrier types
+          
+       3. Maintain text structure and readability
+   </rules>
+
+   <output_format>
+       Return a JSON object:
+       {
+           "cleaned_text": "text without PII",
+           "found_pii_types": ["email", "phone", "name"],
+           "number_of_removals": 3
+       }
+   </output_format>
+
+   <constraints>
+       - Return only the specified JSON format
+       - Do not modify any non-PII information
+       - Keep original formatting where possible
+       - Do not add explanations or markers for removed PII
+   </constraints>
+
+   <examples>
+       <example_1>
+           Input: "Contact John Smith at john@email.com about 2 pallets (120x80cm) weighing 500kg"
+           Output: {
+               "cleaned_text": "Contact [removed] at [removed] about 2 pallets (120x80cm) weighing 500kg",
+               "found_pii_types": ["name", "email"],
+               "number_of_removals": 2
+           }
+       </example_1>
+       <example_2>
+           Input: "3 boxes, call +49 123 456789 for delivery"
+           Output: {
+               "cleaned_text": "3 boxes, call [removed] for delivery",
+               "found_pii_types": ["phone"],
+               "number_of_removals": 1
+           }
+       </example_2>
+   </examples>
+</prompt>
