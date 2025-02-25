@@ -1,4 +1,4 @@
-#!/Users/clemens/Documents/Dev/booking_agent_lg/.venv/bin/python
+#!/Users/clemens/Documents/Dev/booking_agent_lg/.venv/bin/python3.13
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function

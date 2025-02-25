@@ -12,6 +12,8 @@ from pydantic import BaseModel, Field
 from enum import IntEnum
 import streamlit as st
 from chat_window import create_chat_ui, get_user_input, initialize_chat_state
+from langsmith import Client
+
 
 # Lade die Umgebungsvariablen aus .env
 load_dotenv()
@@ -261,4 +263,7 @@ def main() -> None:
         st.rerun()
 
 if __name__ == "__main__":
-    main() 
+    main()
+
+client = Client()
+# Jetzt wird alles automatisch geloggt 
